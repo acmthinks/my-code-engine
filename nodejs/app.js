@@ -1,16 +1,18 @@
-var express = require('express');
-var http = require('http');
-//var https = require('https');
-var app = express();
+const { createServer } = require('node:http');
 
-http.createServer(app);
+const hostname = '127.0.0.1';
+const port = 8080;
 
-app.get('/', function (req, res) {
-  res.send('Hello World');
+const server = createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
 });
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!');
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
+
 
 process.on('SIGTERM', () => {
 	console.info('SIGTERM signal received.');
