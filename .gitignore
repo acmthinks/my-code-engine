@@ -85,6 +85,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+# npm debug logs
+npm-debug.log
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

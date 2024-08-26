@@ -1,4 +1,7 @@
-FROM quay.io/fedora/nodejs-20
-COPY app.js .
+FROM node:12-alpine3.14
+WORKDIR /usr/src/app
+COPY package#.json ./
+RUN npm install
+COPY . .
 EXPOSE 8080
 CMD [ "node", "app.js" ]

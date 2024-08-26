@@ -15,7 +15,7 @@ export REGISTRY=${REGISTRY:-icr.io/codeengine}
 
 
 # Build the image
-docker build ${NOCACHE} -t ${REGISTRY}/my-nodejs-app . --platform linux/amd64
+docker build ${NOCACHE} -t ${REGISTRY}/helloworld . --platform linux/amd64
 
 # And push it
-docker push ${REGISTRY}/my-nodejs-app
+docker push ${REGISTRY}/helloworld

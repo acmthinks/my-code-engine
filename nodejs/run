@@ -9,7 +9,7 @@ function clean() {
   set +ex
   echo Cleaning...
   (
-  ibmcloud ce app delete -n my-nodejs-app -f
+  ibmcloud ce app delete -n helloworld -f
   rm -f out
   ) > /dev/null 2>&1
 }
@@ -21,11 +21,11 @@ set -ex
 export REGISTRY=${REGISTRY:-icr.io/codeengine}
 
 # Create the app
-ibmcloud ce app create -n my-nodejs-app --image ${REGISTRY}/my-nodejs-app
+ibmcloud ce app create -n helloworld --image ${REGISTRY}/helloworld
 #ibmcloud ce app create -n hellow --image ${REGISTRY}/hello --registry-secret <secret>
 
 # Get the URL of the app for later use
-URL=$(ibmcloud ce app get -n my-nodejs-app -o url)
+URL=$(ibmcloud ce app get -n helloworld -o url)
 
 # Now call it
 curl -fs $URL | tee out
