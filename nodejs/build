@@ -10,12 +10,10 @@
 # into that registry before you run it.
 
 set -ex
-#export REGISTRY="icr.io/devel"
-export REGISTRY=${REGISTRY:-icr.io/codeengine}
-
+export REGISTRY="icr.io/devel"
 
 # Build the image
-docker build ${NOCACHE} -t ${REGISTRY}/helloworld . --platform linux/amd64
+docker build ${NOCACHE} -t ${REGISTRY}/myapp . --platform linux/amd64
 
 # And push it
-docker push ${REGISTRY}/helloworld
+docker push ${REGISTRY}/myapp
